@@ -1,10 +1,12 @@
 package oop_00000121658_DevisGeraldo.week01
 
+fun calculateStatus(score: Int) = if (score > 75) "Lulus" else "Tidak Lulus"
 fun main() {
     var name = "Devis Geraldo"
     var score = 80
 
     println("Nama: $name, Nilai: $score")
+    println("Status: ${calculateStatus(score)}")
 
     val grade = when (score) {
         in 90..100 -> "A"
