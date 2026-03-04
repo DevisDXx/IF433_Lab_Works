@@ -11,6 +11,13 @@ fun main() {
 
         println("Processing payment for ${method.accountName}")
         method.processPayment(75000.0)
+
+        if (method is EWallet) {
+            println("Detected EWallet. Performing top up...")
+            method.topUp(50000.0)
+            method.processPayment(75000.0)
+        }
+
         println("-----------------------")
     }
 }
