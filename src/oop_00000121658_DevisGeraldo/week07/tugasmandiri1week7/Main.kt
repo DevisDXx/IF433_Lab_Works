@@ -19,3 +19,16 @@ fun main() {
 
     println("------")
 
+    //Copy (immutability)
+    val upgradedItem = starterWeapon.item.copy(damage = 25)
+
+    println("Upgraded Weapon Damage: ${upgradedItem.damage}")
+
+    println("------")
+
+    //Event simulation
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDropped(upgradedItem))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
+}

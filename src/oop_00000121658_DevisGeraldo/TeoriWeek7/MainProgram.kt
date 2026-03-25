@@ -5,6 +5,7 @@ fun main() {
     Koneksi.test_koneksi()
 
     Mahasiswa.nama="udin";
-    Mahasiswa.set_nilai(uts = 80, uas = 100);
+    val na:Int = Mahasiswa.set_nilai(uts = 80, uas = 100);
+    println("Nilai ${Mahasiswa.nama} adalah $na");
 
 }
