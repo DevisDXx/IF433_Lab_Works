@@ -7,3 +7,15 @@ fun main() {
     GameManager.startGame()
 
     println("------")
+
+    //Enum test
+    println("Drop chance LEGENDARY: ${ItemRarity.LEGENDARY.dropChance}%")
+
+    println("------")
+
+    //Factory test
+    val starterWeapon = Weapon.forgeStarterSword()
+    println("Weapon: ${starterWeapon.item.name}, Damage: ${starterWeapon.item.damage}, Durability: ${starterWeapon.durability}")
+
+    println("------")
+
