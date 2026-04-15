@@ -15,8 +15,20 @@ fun main() {
     for (raw in rawApiData) {
         try {
             parser.parseProduct(raw)?.let { product ->
+
+                when (product) {
+                    is Product.Electronic -> {
+                        println("${product.name} (Warranty ${product.warrantyMonths})")
+                    }
+                    is Product.Clothing -> {
+                        println("${product.name} (Size ${product.size})")
+                    }
+                }
+
                 parser.checkout(product)
+
             } ?: println("Skipped unknown type data")
+
         } catch (e: IllegalArgumentException) {
             println("Error parsing data: ${e.message}")
         }
