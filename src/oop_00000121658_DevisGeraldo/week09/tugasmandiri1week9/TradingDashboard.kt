@@ -24,4 +24,10 @@ fun main() {
         .map {
             "WIN [${it.pair} - ${it.position}]: +${it.roe}% ROE (Lev: ${it.leverage}x)"
         }
+    //5
+    val worstPerformersString = losingTrades
+        .sortedBy { it.roe }
+        .map {
+            "LOSS [${it.pair} - ${it.position}]: ${it.roe}% ROE (Lev: ${it.leverage}x)"
+        }
 }
