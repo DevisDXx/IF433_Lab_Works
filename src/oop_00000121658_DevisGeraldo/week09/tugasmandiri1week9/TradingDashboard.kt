@@ -15,4 +15,7 @@ fun main() {
     //2
     val winningTrades = closedTrades
         .filter { it.roe > 0 }
+    //3
+    val losingTrades = closedTrades
+        .filter { it.roe <= 0 }
 }
