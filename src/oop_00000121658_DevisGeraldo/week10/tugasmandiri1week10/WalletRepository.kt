@@ -11,4 +11,10 @@ class WalletRepository<T> {
     fun getAll(): List<T> {
         return items
     }
+
+    fun search(keyword: String): List<T> {
+        return items.filter {
+            it.toString().contains(keyword, ignoreCase = true)
+        }
+    }
 }
