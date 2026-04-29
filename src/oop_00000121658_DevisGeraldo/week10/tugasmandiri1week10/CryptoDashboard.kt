@@ -24,4 +24,10 @@ fun main() {
     txRepo.getAll().forEach {
         println("ID: ${it.id}, Amount: ${it.amount}")
     }
+
+    println("\nSearch 'BTC':")
+    coinRepo.search("BTC").forEach {
+        println(it)
+    }
+
 }
