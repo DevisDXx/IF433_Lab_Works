@@ -1,6 +1,13 @@
 package oop_00000121658_DevisGeraldo.week11
 
 fun main() {
+    println("=== TEST APPLY ===")
+    val user = User().apply {
+        name = "Alex"
+        age = 25
+    }
+    println(user)
+
     println("=== TEST EXTENSION FUNCTIONS ===")
     println("Alex".addGreeting())
     println("Hi".repeatTimes(3))
