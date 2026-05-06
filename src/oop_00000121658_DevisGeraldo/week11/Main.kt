@@ -20,6 +20,12 @@ fun main() {
         println("User Detail -> Nama: $name, User: $age")
     }
 
+    val newUser = User("Budi", 20).apply {
+        age = 21
+    }.also {
+        println("User baru berhasil dibuat: $it")
+    }
+
     println("=== TEST EXTENSION FUNCTIONS ===")
     println("Alex".addGreeting())
     println("Hi".repeatTimes(3))
