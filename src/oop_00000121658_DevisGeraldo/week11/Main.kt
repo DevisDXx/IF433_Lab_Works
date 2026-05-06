@@ -15,6 +15,11 @@ fun main() {
     }.add(4)
     println("Setelah ditambah: $numbers")
 
+    println("\n=== TEST WITH ===")
+    with(user) {
+        println("User Detail -> Nama: $name, User: $age")
+    }
+
     println("=== TEST EXTENSION FUNCTIONS ===")
     println("Alex".addGreeting())
     println("Hi".repeatTimes(3))
