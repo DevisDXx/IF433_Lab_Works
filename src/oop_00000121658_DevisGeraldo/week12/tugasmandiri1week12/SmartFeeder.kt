@@ -17,4 +17,7 @@ fun dispenseKibble(
         throw FoodEmptyException(requestedGram, availableGram)
     }
 
+    println("Kibble berhasil dikeluarkan!")
+
+    return availableGram - requestedGram
 }
