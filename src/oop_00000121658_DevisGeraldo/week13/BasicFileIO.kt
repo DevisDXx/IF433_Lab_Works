@@ -16,7 +16,6 @@ fun main() {
     lines.forEachIndexed { index, line ->
         println("Isi Index $index: $line")
     }
+    file.appendText("Line 2: Menambahkan konfigurasi baru.\n")
+    println("Teks berhasil di-append.")
 }
-
-file.appendText("Line 2: Menambahkan konfigurasi baru.\n")
-println("Teks berhasil di-append.")
