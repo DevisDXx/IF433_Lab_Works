@@ -61,4 +61,13 @@ fun main() {
     val path = "crypto_trades.csv"
 
     saveTrades(trades, path)
+
+    File(path).appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
+
+    val loadedData = loadTrades(path)
+    println("===== DATA TRADE VALID =====")
+
+    loadedData.forEach {
+        println(it)
+    }
 }
