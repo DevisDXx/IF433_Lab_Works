@@ -13,3 +13,7 @@ data class TradeRecord(
 fun TradeRecord.toCsv(): String {
     return "$id,$symbol,$type,$margin,$pnl"
 }
+
+fun fromCsvTrade(line: String): TradeRecord? {
+        val parts = line.split(",")
+    }
