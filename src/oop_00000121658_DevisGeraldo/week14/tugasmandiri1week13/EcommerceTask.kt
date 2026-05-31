@@ -43,7 +43,67 @@ class EmailNotifier : NotificationService {
     }
 }
 
+interface PricingStrategy {
+    fun calculate(price: Double): Double
+}
+
+class RegularPricing : PricingStrategy {
+    override fun calculate(price: Double): Double {
+        return price
+    }
+}
+
+class VipPricing : PricingStrategy {
+    override fun calculate(price: Double): Double {
+        return price * 0.90
+    }
+}
+
+
 class SafeOrderProcessor(
     private val repo: OrderRepository,
     private val notifier: NotificationService
-)
+) {
+
+    fun processOrder(
+        itemName: String,
+        basePrice: Double,
+        pricingStrategy: PricingStrategy
+    ) {
+
+        val finalPrice = pricingStrategy.calculate(basePrice)
+
+        println("Memproses pesanan $itemName seharga $finalPrice")
+
+        repo.saveOrder(itemName, finalPrice)
+
+        notifier.sendNotification(itemName)
+    }
+}
+
+fun main() {
+
+    val repository = CsvOrderRepository()
+    val notifier = EmailNotifier()
+
+    val processor = SafeOrderProcessor(
+        repository,
+        notifier
+    )
+
+    println("=== REGULAR CUSTOMER ===")
+    processor.processOrder(
+        "Keyboard",
+        500000.0,
+        RegularPricing()
+    )
+
+    println()
+
+    println("=== VIP CUSTOMER ===")
+    processor.processOrder(
+        "Mouse Gaming",
+        300000.0,
+        VipPricing()
+    )
+}
